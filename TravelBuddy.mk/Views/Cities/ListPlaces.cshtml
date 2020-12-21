@@ -1,0 +1,37 @@
+﻿@model TravelBuddy.mk.Models.City
+
+@{
+    ViewBag.Title = "ListPlaces";
+}
+
+<h2>List of Places available in the city of @Model.Name</h2>
+
+@Html.ActionLink("Add New Place", "AddNewPlace" , new { id = Model.Id })
+
+@foreach (var item in Model.Places)
+{
+<table style="border-bottom:1px solid black">
+    <tr>
+        <td>
+            
+                @Html.DisplayFor(modelItem => item.Name)
+            
+        </td>
+        <td>
+                 
+                    <img src="@item.imageUrl" width="250" height="150" />
+                
+        </td>
+        
+        
+
+        <td>
+            @Html.ActionLink("Edit", "Edit", "Places", new { id = item.Id  , cityId=Model.Id} , null) |
+            @Html.ActionLink("Details", "Details", "Places", new { id = item.Id , cityId=Model.Id} , null) |
+            @Html.ActionLink("Delete", "Delete", "Places", new { id = item.Id , cityId=Model.Id } , null)
+           
+        </td>
+    </tr>
+</table>
+}
+

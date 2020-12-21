@@ -1,0 +1,65 @@
+﻿@model TravelBuddy.mk.Models.City
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>City</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Images)
+        </dt>
+
+        <div class="images">
+            <dd>
+                <img src="@Model.Img1" width="250" class="img-rounded" />
+            </dd>
+
+            <dd>
+                <img src="@Model.Img2" width="250" class="img-rounded" />
+
+            </dd>
+
+            <dd>
+                <img src="@Model.Img3" width="250" class="img-rounded" />
+
+            </dd>
+        </div>
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index") |
+    @Html.ActionLink("Display Places", "ListPlaces" , new { id = Model.Id })
+</p>
+
+@section scripts{
+    
+   <script>
+
+       $(".images").slideUp(300);
+
+    </script>
+    
+    
+    }
